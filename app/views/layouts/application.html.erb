@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tralobo</title>
+	<%# title provided on each page for prefix here %>
+  <title><%= yield(:title) %> | Tralobo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%# prevents CSRF attack %>
   <%= csrf_meta_tags %>
 </head>
 <body>
