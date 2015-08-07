@@ -2,6 +2,10 @@
 $light-blue: #3c46d6;
 $dark-blue: #051659;
 
+$goldy: #DAA520;
+$light-grey: #EDEDED;
+$dark-grey: #202020;
+
 /* header */
 
 .logo{ 
@@ -9,24 +13,59 @@ float: right;
 margin-top: 10px;
 font-size: 25px;
 font-weight: bold;
-color: #DAA520;
+color: $goldy;
 text-transform: uppercase;
 letter-spacing: -1px;
 	&:hover {
 	text-decoration: none;
-	color: #DAA520;
+	color: $goldy;
 	}
 }
 
 /* layout */ 
 
+.container{
+	color: $dark-grey;
+}
+
 .top-margin{
 	margin-top: 50px;
 }
 
+.main-panel{
+	border-left: $light-grey solid 1px;
+	border-right: $light-grey solid 1px;
+}
+
 /* homepage */
 
+
 #map-canvas{
-	width: 200px;
-	height: 200px;
+	width: 250px;
+	height: 250px;
+	border: $light-grey solid 1px;
+}
+
+.background{
+	margin-right:none;
+	margin-left: none;
+	margin-bottom: 20px;
+	width: 650px;
+}
+
+.large-title{
+	font-size: 50px;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.under-title{
+	font-size: 25px;
+	text-align: center;
+}
+
+.heading{
+	color: $goldy;
 }
