@@ -5,12 +5,22 @@
   <title><%=full_title(yield(:title))%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%# google maps api %>
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <%# bootstrap %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%# prevents CSRF attack %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<%= render 'layouts/header' %>
+<div class='container top-margin'>
+	<div class='row' >
+		<div class='col-xs-2'>
+		</div>
+		<div class='col-xs-10'>
+			<%= yield %>
+		</div>
+</div>
 </body>
 </html>

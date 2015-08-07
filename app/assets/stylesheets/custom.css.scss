@@ -1,0 +1,32 @@
+/* variables */
+$light-blue: #3c46d6;
+$dark-blue: #051659;
+
+/* header */
+
+.logo{ 
+float: right;
+margin-top: 10px;
+font-size: 25px;
+font-weight: bold;
+color: #DAA520;
+text-transform: uppercase;
+letter-spacing: -1px;
+	&:hover {
+	text-decoration: none;
+	color: #DAA520;
+	}
+}
+
+/* layout */ 
+
+.top-margin{
+	margin-top: 50px;
+}
+
+/* homepage */
+
+#map-canvas{
+	width: 200px;
+	height: 200px;
+}
