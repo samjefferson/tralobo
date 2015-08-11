@@ -5,6 +5,7 @@ $dark-blue: #051659;
 $goldy: #DAA520;
 $light-grey: #EDEDED;
 $dark-grey: #202020;
+$nav: #2c2c2c;
 
 /* header */
 
@@ -16,6 +17,7 @@ font-weight: bold;
 color: $goldy;
 text-transform: uppercase;
 letter-spacing: -1px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	&:hover {
 	text-decoration: none;
 	color: $goldy;
@@ -41,9 +43,10 @@ letter-spacing: -1px;
 
 
 #map-canvas{
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
 	border: $light-grey solid 1px;
+	margin-bottom: 10px;
 }
 
 .background{
@@ -59,13 +62,60 @@ letter-spacing: -1px;
 	letter-spacing: -2px;
 	text-align: center;
 	font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .under-title{
 	font-size: 25px;
 	text-align: center;
+  color: #7A5200 !important;
 }
 
 .heading{
 	color: $goldy;
+}
+
+.side-panel{
+	background-color: #F8F8F8;
+	border: solid 1px;
+	border-color: #E7E7E7;
+}
+
+.side-panel-left{
+	border-right: none;
+}
+
+.side-panel-right{
+	border-left: none;
+}
+
+/*footer*/
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }

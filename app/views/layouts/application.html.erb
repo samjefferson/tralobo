@@ -16,11 +16,14 @@
 	<%= render 'layouts/header' %>
 <div class='container top-margin'>
 	<div class='row' >
-		<div class='col-xs-2'>
+		<div class='col-xs-2 side-panel side-panel-left'>
+    <%= render 'layouts/sidepanel' %>
 		</div>
 		<div class='col-xs-10'>
 			<%= yield %>
 		</div>
 </div>
+</div>
+<%= render 'layouts/footer' %>
 </body>
 </html>
