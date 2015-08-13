@@ -2,22 +2,23 @@
 $light-blue: #3c46d6;
 $dark-blue: #051659;
 
-$goldy: #DAA520;
+$goldy: #7A5200;
 $light-grey: #E7E7E7;
 $dark-grey: #202020;
 $nav: #2c2c2c;
 
 /* header */
 
+
 .logo{ 
 float: right;
 margin-top: 10px;
 font-size: 25px;
 font-weight: bold;
+font-family: 'Kaushan Script', cursive;
 color: $goldy;
 text-transform: uppercase;
 letter-spacing: -1px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	&:hover {
 	text-decoration: none;
 	color: $goldy;
@@ -37,6 +38,11 @@ letter-spacing: -1px;
 .main-panel{
 	border-left: $light-grey solid 1px;
 	border-right: $light-grey solid 1px;
+}
+
+.nav{
+	font-family: 'Kaushan Script', cursive;
+	color: $goldy !important;
 }
 
 /* homepage */
@@ -62,17 +68,19 @@ letter-spacing: -1px;
 	letter-spacing: -2px;
 	text-align: center;
 	font-weight: bold;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
+    font-family: 'Kaushan Script', cursive;
+  }
 
 .under-title{
 	font-size: 25px;
 	text-align: center;
   color: #7A5200 !important;
+  font-family: 'Kaushan Script', cursive !important;
 }
 
 .heading{
 	color: $goldy;
+	font-family: 'Kaushan Script', cursive;
 }
 
 .side-panel{
