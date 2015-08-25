@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { within: 6..16}, format: { with: PASS_REGEX }
 
 	scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first}
+
+	def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

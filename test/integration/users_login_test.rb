@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
+
+	 def setup
+    @user = users(:test)
+  end
+
   
   test 'invaid log in' do 
   	get login_path
@@ -13,13 +18,19 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   end
 
-  test 'valid log in' do
-  	get root_path
-  	assert_select 'a[href=?]', login_path
-  	assert_select 'a[href=?]', signup_path
-  	post login_path, session: { username: 'test1234', password: 'test1234'}
-  	get root_path
+  test 'valid log in and log out' do
+  	get login_path
+  	post login_path, session: { username: @user.username, password: 'password'}
+  	assert is_logged_in?
+  	assert_redirected_to @user
+    follow_redirect!
   	assert_select 'a[href=?]', logout_path
-  	assert_select 'a[href=?]', users_path
+  	assert_select 'a[href=?]', user_path
+  	delete logout_path
+    assert_not is_logged_in?
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_select 'a[href=?]', login_path
+  	assert_select 'a[href=?]', signup_path
   end
 end

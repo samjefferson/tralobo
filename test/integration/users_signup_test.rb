@@ -21,6 +21,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   															password: 'password3',
   															password_confirmation: 'password3'}
   		end
+      assert is_logged_in?
+      assert_template 'users/show'
   end
 
 end
