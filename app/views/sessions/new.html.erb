@@ -1,0 +1,17 @@
+<% provide(:title, 'Log in') %>
+<h1 class='heading'>Log in</h1>
+
+<div class='row'>
+	<div class='col-xs-9 main-panel'>
+		<%= form_for(:session, url: login_path) do |f|%>
+			<%= f.label :username %>
+			<%= f.text_field :username, class: 'form-control' %>
+			<%= f.label :password %>
+			<%= f.password_field :password, class: 'form-control' %>
+			<br>
+			<%= f.submit 'Log in', class: 'btn btn-default tralobo-btn form-btn' %>
+		<% end %>
+		<br>
+		<p>Not already a user?  <%= link_to 'Sign up here!', signup_path %></p>
+	</div>
+</div>

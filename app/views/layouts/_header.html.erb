@@ -6,8 +6,13 @@
 
 			<li><%= link_to "Home", root_path, class: 'navlink' %></li>
 			<li><%= link_to "Directory", '#', class: 'navlink' %></li>
-	
-			<li><div class="fb-share-button" data-href="https://www.thecapitalcitiesquiz.com/" data-layout="button"></div></li>
+			<% if logged_in? %>
+				<li><%= link_to 'Log out', logout_path, class: 'navlink' %></li>
+				<li><%= link_to current_user[:username], current_user, class: 'navlink user-link' %></li>
+			<% else %> 
+				<li><%= link_to 'Log in', login_path, class: 'navlink' %> </li>
+				<li><%= link_to 'Sign up', signup_path, class: 'navlink' %> </li>
+			<% end %>
 		</ul>
 	</nav>
 </div>

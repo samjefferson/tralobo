@@ -1,4 +1,29 @@
-<script>
+	<div class='row'>
+		<div class= 'col-xs-9 main-panel'>
+			<div class='background'>
+			<h1 class='large-title heading'>Tra<span class='lo'>lo</span><span class='bo'>bo</span></h1>
+			<h2 class='under-title heading'>The Traveller's Logbook</h2>
+		</div>
+			<p>The website is in its first few days of life.  Please contribute to help get us off the ground, and hopefully together we can create something intriguing and interesting.</p>
+			<br>
+			<p><b>Welcome to Tralobo</b>, the place to find information and experiences regarding your next travel destination, or to share your experiences with the wider community.  At Tralobo, our goal is to build up a directory of tips, reviews and experiences throughout space and place.  We want to satisfy the explorers desire to share his discoveries, to alleviate the worried backpackers trepidation and to recreate good times for travellers and tourists everywhere.  We'd love it if you could help us on our mission by contributing to our directory and helping to build a collaboration to connect travellers everywhere.</p>
+			<br>
+			<p><b>Our vison</b> for the short term direction of the site is to move towards bringing in more interactive networking features.  Once we are consistently hitting our short term goal for traffic we will be introducing a user forum, a web support system and a method for rewarding top contributors.</p>
+
+			<div class='well'>
+			<p>You do not have to sign up to view our content.  If you would, however, like to make a log, or to comment on and rate logs created by others, sign up for your free account.<p>
+			<%= link_to 'Sign Up Here', signup_path, class: 'btn btn-lg btn-default tralobo-btn' %><br>
+		</div>
+		</div>
+		<div class='col-xs-3 side-panel side-panel-right'>
+			<h3 class='heading'>Take a look at:</h3>
+			<div id='map-canvas'>
+
+			</div>
+		</div>
+	</div>
+
+	<script>
 var map; //<-- This is now available to both event listeners and the initialize() function
 function initialize() {
   var mapOptions = {
@@ -16,31 +41,6 @@ google.maps.event.addDomListener(window, "resize", function() {
  map.setCenter(center); 
 });
 </script>
-
-	<div class='row'>
-		<div class= 'col-xs-9 main-panel'>
-			<div class='background'>
-			<h1 class='large-title heading'>Tra<span class='lo'>lo</span><span class='bo'>bo</span></h1>
-			<h2 class='under-title heading'>The Traveller's Logbook</h2>
-		</div>
-			<p>The website is in its first few days of life.  Please contribute to help get us off the ground, and hopefully together we can create something intriguing and interesting.</p>
-			<br>
-			<p><b>Welcome to Tralobo</b>, the place to find information and experiences regarding your next travel destination, or to share your experiences with the wider community.  At Tralobo, our goal is to build up a directory of tips, reviews and experiences throughout space and place.  We want to satisfy the explorers desire to share his discoveries, to alleviate the worried backpackers trepidation and to recreate good times for travellers and tourists everywhere.  We'd love it if you could help us on our mission by contributing to our directory and helping to build a collaboration to connect travellers everywhere.</p>
-			<br>
-			<p><b>Our vison</b> for the short term direction of the site is to move towards bringing in more interactive networking features.  Once we are consistently hitting our short term goal for traffic we will be introducing a user forum, a web support system and a method for rewarding top contributors.</p>
-
-			<div class='well'>
-			<p>You do not have to sign up to view our content.  If you would, however, like to make a log, or to comment on and rate logs created by others, sign up for your free account.<p>
-			<%= link_to 'Sign Up Here', signup_path, class: 'btn btn-lg btn-default tralobo-button' %><br>
-		</div>
-		</div>
-		<div class='col-xs-3 side-panel side-panel-right'>
-			<h3 class='heading'>Take a look at:</h3>
-			<div id='map-canvas'>
-
-			</div>
-		</div>
-	</div>
 
 
 

@@ -37,9 +37,18 @@ letter-spacing: -1px;
 
 /* layout */ 
 
-.tralobo-button{
+.user-link{
+	color: $goldy !important;
+}
+
+.tralobo-btn{
 	font-family: 'Kaushan Script', cursive;
 	color: $goldy !important;
+	width: none !important;
+}
+
+.form-btn{
+	width: 200px !important;
 }
 
 .container{

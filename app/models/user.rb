@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 	has_secure_password
 	PASS_REGEX = /\A(?=.*\d)(?=.*[a-zA-Z])[A-Za-z\d]+\z/
 	validates :password, presence: true, length: { within: 6..16}, format: { with: PASS_REGEX }
+
+	scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first}
 end

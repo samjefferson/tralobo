@@ -8,19 +8,17 @@
       <%= f.label :username %>
       <p>Your username will be unique, used to log in to your account and displayed on you posts and comments.</p>
       <%= f.text_field :username, class: 'form-control' %>
-      <br><br>
       <%= f.label :email %>
       <p>Your email address will be verified for account activation.</p>
       <%= f.email_field :email, class: 'form-control' %>
-      <br><br>
       <%= f.label :password %>
       <p>Your password should be between 6 and 16 characters and contain atleast one number and atleast one letter.</p>
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Password confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <br><br><p>I accept the terms and conditions.</p>
-      <%= f.submit "Create Account", class: "btn btn-default tralobo-button" %>
+      <p>I accept the terms and conditions.</p>
+      <%= f.submit "Create Account", class: "btn btn-default tralobo-btn form-btn" %>
     <% end %>
   </div>
   <div class='col-xs-3 side-panel'>
