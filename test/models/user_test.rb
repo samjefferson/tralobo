@@ -81,4 +81,8 @@ class UserTest < ActiveSupport::TestCase
   	end
   end
 
+  test 'authenticate? false for nil token' do
+    assert_not @user.authenticated?('')
+  end
+
 end
