@@ -16,10 +16,14 @@
 		<% if @user.admin? %>
 		<p> You are an admin user </p>
 		<% end %>
-		<% if current_user.admin? && !current_user?(@user) %>
+		<% if current_user.admin? %>
 		<div class='well'>
 		<h4>Admin controls</h4>
-		<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: "Are you sure?" } %> 
+		<% if !current_user?(@user) %>
+		<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: "Are you sure?" } %>
+		<% else %>
+		<p><%= link_to 'Unvalidated locations', '#' %> (<%= unvalidated_location_number %>)</p> 
+		<% end %>
 	</div>
 		<% end %>
 

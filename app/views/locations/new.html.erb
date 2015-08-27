@@ -1,0 +1,58 @@
+<% provide :title, 'New Location' %>
+<div class= 'row'>
+	<div class = 'col-xs-9 main-panel'>
+
+		<h1 class= 'heading'>Add a new location</h1>
+		<p>Use this page to request a new location.  Please make sure the location does not already exist in our directory.  You submission will be verified soon after you create your post and may be altered or removed it is deemed unsuitable.  Despite this, the new location will still be immediately available for use.  If the city name may be difficult to interpret (i.e. it shares its name with a city in a different location), feel free to add the country or other identification information.  The validation will correct any issues. </p>
+
+
+	<% if current_user.admin? %>
+		<p>Create new location.</p>
+		<%= form_for(@location) do |f| %>
+		<%= f.label :continent %>
+		<%= f.number_field :continent, class: 'form-control' %>
+		<br>
+		<%= f.label :state %>
+		<%= f.number_field :state, class: 'form-control'%>
+		<br>
+		<%= f.label :city %>
+		<%= f.text_field :city, class: 'form-control' %>
+		<br>
+		<%= f.label :coordinate %>
+		<%= f.text_field :coordinate, class: 'form-control' %>
+		<br>
+		<%= f.submit "Continue", class: "btn btn-default tralobo-btn form-btn" %>
+		<% end %>
+
+	<% else %>
+	<p>Request for the follwing city (or rural area) to be added to the directory.<p>
+		<%= form_for(@location) do |f| %>
+
+		<%= f.hidden_field :continent,  value: 0 %>
+		<%= f.hidden_field :state, value: 0 %>
+		<%= f.text_field :city, class: 'form-control' %>
+		<%= f.hidden_field :coordinate, value: "0.0,0.0" %>
+		<br>
+		<%= f.submit "Continue", class: "btn btn-default tralobo-btn form-btn" %>
+
+		<% end %>
+	<%end%>
+	</div>
+	<div class='col-xs-3'>
+		<% if current_user.admin? %>
+		<h3>Admin references</h3>
+		<h4>Continent index</h4>
+		<% cont_array.each do |cont_value| %>
+			<small><%= cont_value %>(<%=cont_array.index(cont_value)%>)</small>
+		<% end %>
+		<h4>State index</h4>
+		<% state_array.each do |state_value| %>
+			<small><%= state_value %>(<%=state_array.index(state_value)%>)</small>
+		<% end %>
+		<% end %>
+	</div>
+</div>
+
+
+
+

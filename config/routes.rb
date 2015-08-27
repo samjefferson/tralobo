@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'locations/new'
+
+  get 'locations/show'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -9,9 +13,13 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'location_request' => 'locations#new'
+  post 'location_request' => "locations#create"
+  get 'directory' => 'locations#index'
 
 
   resources :users
+  resources :locations
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

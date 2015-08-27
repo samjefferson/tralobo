@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827121934) do
+ActiveRecord::Schema.define(version: 20150827161544) do
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "continent"
+    t.integer  "state"
+    t.string   "city"
+    t.string   "coordinate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "locations", ["city"], name: "index_locations_on_city", unique: true
+
+  create_table "logs", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "logs", ["location_id", "created_at"], name: "index_logs_on_location_id_and_created_at"
+  add_index "logs", ["location_id"], name: "index_logs_on_location_id"
+  add_index "logs", ["user_id", "created_at"], name: "index_logs_on_user_id_and_created_at"
+  add_index "logs", ["user_id"], name: "index_logs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
