@@ -13,5 +13,15 @@
 		<h5 class='heading'>Log-Points:</h5><br>
 
 		<p>No new notifications</p>
+		<% if @user.admin? %>
+		<p> You are an admin user </p>
+		<% end %>
+		<% if current_user.admin? && !current_user?(@user) %>
+		<div class='well'>
+		<h4>Admin controls</h4>
+		<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: "Are you sure?" } %> 
+	</div>
+		<% end %>
+
 	</div>
 </div>
