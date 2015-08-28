@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'location_request' => 'locations#new'
   post 'location_request' => "locations#create"
   get 'directory' => 'locations#index'
+  get 'create_log' => 'logs#new'
 
 
   resources :users
