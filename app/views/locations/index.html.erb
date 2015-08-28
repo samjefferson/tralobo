@@ -9,15 +9,34 @@
 		  <div class="panel-group">
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
-		        <h4 class="panel-title">
+		        <h4 class="panel-title heading goldy">
 		          <a data-toggle="collapse" href="#collapse<%=cont_array.index(cont_value)%>"><%= cont_value %></a>
 		        </h4>
 		      </div>
 		      <div id="collapse<%=cont_array.index(cont_value)%>" class="panel-collapse collapse">
 		        <ul class="list-group">
-        			<li class="list-group-item">One</li>
-       				<li class="list-group-item">Two</li>
-        			<li class="list-group-item">Three</li>
+        			<% state_hash = Location.where("continent = #{cont_array.index(cont_value)}")%>
+        			<% if !state_hash.nil? %>
+        				<% state_hash.uniq {|x| x[:state]} %>
+        				<% state_hash.sort_by { |e| e[:state] }.each do |state_value| %>
+        					<a class='directory-list gold-link' data-toggle='collapse' href="#collapseS<%=state_value.state%>"><%= state_array[state_value.state] %></a>
+        					<div id="collapseS<%=state_value.state%>" class="panel-collapse collapse">
+        						<ul class="list-group">
+        							<% city_hash = Location.where("state = #{state_value.state}") %>
+        							<% if !city_hash.nil? %>
+        								<%city_hash.uniq {|x| x[:city]}%>
+        								<%city_hash.sort_by {|e| e[:city].downcase}.each do |city_value| %>
+        									<li class="directory-list"><%= link_to city_value.city, '#', class: 'under-link' %>
+        								<% end %>
+        							<% else %>
+        								<p>Unfortunately there are no logs in this state.</p>
+        							<% end%> 
+        						</ul>
+        					</div>
+        				<%end%>
+        			<% else %>
+        			<p>Unfortunately there are no logs in this continent</p>
+        		<%end%>
       			</ul>
 		      </div>
 		    </div>

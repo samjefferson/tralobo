@@ -1,2 +1,23 @@
-<h1>Location#show</h1>
-<p>Find me in app/views/location/show.html.erb</p>
+<div class='row'>
+	<div class='col-xs-9 main-panel'>
+		<h1 class='heading'><%=@location.city %></h1>
+		<ul class='nav nav-tabs'>
+			<li class='active'><a href='#' class='gold-link'>Latest</a></li>
+			<li><a href='#' class='gold-link'>Most Popular</a></li>
+		</ul>
+		<% if @location.logs.any? %>
+			<h3 class='heading'><%= @location.logs.count %> logs posted</h3>
+			<ol class='logs'>
+				<%= render @logs %>
+			</ol>
+			<%= will_paginate @logs %>
+			<% else %>
+			<h3 class='heading'>No logs yet.</h3>
+			<p>When a log is posted for this location, it will be displayed here.</p>
+			<br>
+			<br>
+			<p>Why not get started and post a log of your experience in this location.</p>
+			<br>
+			<%end%>
+	</div>
+</div>

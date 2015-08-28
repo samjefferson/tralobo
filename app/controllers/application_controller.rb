@@ -6,4 +6,14 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include LocationsHelper
   include ApplicationHelper
+
+private
+
+  def logged_in_user
+		unless logged_in?
+        flash[:danger] = "You must be logged in to view this page."
+        redirect_to login_url
+    end
+  end
+
 end

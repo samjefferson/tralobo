@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+
 before_action :admin_user,     only: :destroy
   def new
   	redirect_to root_url unless logged_in?
@@ -16,6 +17,8 @@ before_action :admin_user,     only: :destroy
   end
 
   def show
+    @location = Location.find(params[:id])
+    @logs = @location.logs.paginate(page: params[:page])
   end
 
   def destroy

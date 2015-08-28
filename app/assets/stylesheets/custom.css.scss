@@ -69,6 +69,22 @@ letter-spacing: -1px;
 	color: $goldy !important;
 }
 
+.goldy{
+  color: $goldy !important;
+}
+
+.gold-link{
+  color: $goldy !important;
+  font-weight: bold;
+  &:hover{
+    color: $dark-grey !important;
+  }
+}
+
+.under-link{
+  color: $dark-grey !important;
+}
+
 /* homepage */
 
 
@@ -193,6 +209,14 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+/*directory*/
+
+.directory-list{
+  list-style: none;
+  padding: 5px;
+
 }
 
 /* logs */
