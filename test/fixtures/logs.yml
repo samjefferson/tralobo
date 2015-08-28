@@ -3,21 +3,34 @@ thirty:
   content: 'thirty mins in fact'
   location_id: 1
   created_at: <%= 30.minutes.ago %>
+  user: test
 
 twenty:
   title: 'while ago'
   content: 'twenty mins in fact'
   location_id: 1
   created_at: <%= 20.minutes.ago %>
+  user: test
 
 ten:
   title: 'not long ago'
   content: '10 mins in fact'
   location_id: 1
   created_at: <%= 10.minutes.ago %>
+  user: test
 
 most_recent:
   title: 'right now'
   content: 'like actually now'
   location_id: 1
   created_at: <%= Time.zone.now %>
+  user: test
+
+<% 27.times do |a|%>
+log_no_<%= a %>:
+  title: <%=Faker::Lorem.word%>
+  content: <%=Faker::Lorem.sentence(5) %>
+  location_id: 1
+  created_at: <%= 1.year.ago %>
+  user: test
+<%end%> 
