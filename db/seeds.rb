@@ -13,3 +13,12 @@ User.create!(username:  "test123",
                password:              password,
                password_confirmation: password)
 end
+
+  users = User.order(:created_at).take(6)
+50.times do
+	title = Faker::Lorem.word
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.logs.create!(title: title, content: content, location_id: 1) }
+end
+
+Location.create(continent: 0, state: 1, city: 'Gotham', coordinate: '00.00,00.00')

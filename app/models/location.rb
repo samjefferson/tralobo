@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+	has_many :logs
 
 	CITY_REGEX = /\A[A-Za-z\s]+\z/
 	validates :city, presence: true, length: { maximum: 25 }, format: { with: CITY_REGEX }, uniqueness: { case_sensitive: false }

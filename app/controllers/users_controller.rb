@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @logs = @user.logs.paginate(page: params[:page])
     if !current_user.nil?
 
       unless current_user?(@user) || current_user.admin? 
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-    
+
   end
 
 

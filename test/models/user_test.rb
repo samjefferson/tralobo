@@ -85,4 +85,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
 
+  test 'delete user and dependent logs' do
+    @user.save
+    @user.logs.create(title: 'hello', content: 'hello', location_id: 1)
+    assert_difference 'Log.count', -1 do 
+      @user.destroy
+    end
+  end
+
 end

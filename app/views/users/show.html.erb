@@ -7,6 +7,20 @@
 			<li class='active'><a href='#' class='gold-link'>Latest</a></li>
 			<li><a href='#' class='gold-link'>Most Popular</a></li>
 		</ul>
+		<% if @user.logs.any? %>
+			<h3 class='heading'><%= @user.logs.count %> logs posted</h3>
+			<ol class='logs'>
+				<%= render @logs %>
+			</ol>
+			<%= will_paginate @logs %>
+			<% else %>
+			<h3 class='heading'>No logs yet.</h3>
+			<p>When you post a log it will be displayed here.</p>
+			<br>
+			<br>
+			<p>Your logs can be voted on by members, more popular logs will receive more attention and earn you more log points. </p>
+			<br>
+			<%end%>
 	</div>
 	<div class='col-xs-3 side-panel side-panel-right'>
 		<h3><%= @user.username %></h3>
