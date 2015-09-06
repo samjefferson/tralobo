@@ -1,0 +1,12 @@
+<% provide(:title, "View Log") %>
+
+<div class='row'>
+	<div class='col-xs-9'>
+		<h1><%= @log.title%></h1>
+		<br>
+		<h3>by <b><%=@log.user.username%></b></h3>
+		<br>
+		<p><%=@log.content%></p>
+
+	</div>
+</div>

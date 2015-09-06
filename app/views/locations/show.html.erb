@@ -3,6 +3,27 @@
 <div class='row'>
 	<div class='col-xs-9 main-panel'>
 		<h1 class='heading'><%=@location.city %></h1>
+<% if logged_in? %>
+		<button data-toggle="collapse" data-target="#new-log" class='btn btn-lg btn-default tralobo-btn'>Create Log for <%=@location.city %></button>
+		<br>
+		<div id='new-log' class='collapse well'>
+			<p>Neither the title nor the content may be left blank.  The character limit for the content is 1000.</p>
+			<%= form_for(@log) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+  		<div class="field">
+  			<%= f.label :title %>
+  			<%= f.text_field :title, class: 'form-control' %>
+  			<%= f.hidden_field :location_id, value: @location.id %>
+  			<br>
+   		  <%= f.text_area :content, placeholder: "Create new Log...", class: 'form-control', maxlength: 1000 %>
+  		</div>
+  		<br>
+  		<%= f.submit "Submit",class: 'btn btn-default tralobo-btn form-btn' %>
+  	<% end %>
+  </div>
+
+<% end %>
+		<br>
 		<ul class='nav nav-tabs'>
 			<li class='active'><a href='#' class='gold-link'>Latest</a></li>
 			<li><a href='#' class='gold-link'>Most Popular</a></li>

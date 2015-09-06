@@ -27,7 +27,7 @@
 	<% else %>
 	<p>Request for the follwing city (or rural area) to be added to the directory.<p>
 		<%= form_for(@location) do |f| %>
-
+		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.hidden_field :continent,  value: 0 %>
 		<%= f.hidden_field :state, value: 0 %>
 		<%= f.text_field :city, class: 'form-control' %>

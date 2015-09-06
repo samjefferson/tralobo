@@ -16,12 +16,12 @@ Rails.application.routes.draw do
   get 'location_request' => 'locations#new'
   post 'location_request' => "locations#create"
   get 'directory' => 'locations#index'
-  get 'create_log' => 'logs#new'
+  post 'logs/create'
 
 
   resources :users
   resources :locations
-  resources :logs, only: [:create, :destroy]
+  resources :logs, only: [:show, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

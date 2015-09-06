@@ -19,7 +19,7 @@
         			<% if !state_hash.nil? %>
         				<% state_hash.uniq {|x| x[:state]} %>
         				<% state_hash.sort_by { |e| e[:state] }.each do |state_value| %>
-        					<a class='directory-list gold-link' data-toggle='collapse' href="#collapseS<%=state_value.state%>"><%= state_array[state_value.state] %></a>
+        					<a class='directory-list' data-toggle='collapse' href="#collapseS<%=state_value.state%>"><%= state_array[state_value.state] %></a>
         					<div id="collapseS<%=state_value.state%>" class="panel-collapse collapse">
         						<ul class="list-group">
         							<% city_hash = Location.where("state = #{state_value.state}") %>

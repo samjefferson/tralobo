@@ -3,7 +3,7 @@
 	<div class='col-xs-9 main-panel'>
 		<h1 class='heading'>Sign Up</h1>
 <%= form_for(@user) do |f| %>
-			<%= render 'shared/error_messages' %>
+			<%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :username %>
       <p>Your username will be unique, used to log in to your account and displayed on you posts and comments.</p>

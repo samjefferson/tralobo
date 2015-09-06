@@ -19,6 +19,7 @@ before_action :admin_user,     only: :destroy
   def show
     @location = Location.find(params[:id])
     @logs = @location.logs.paginate(page: params[:page])
+    @log = current_user.logs.build if logged_in?
   end
 
   def destroy
