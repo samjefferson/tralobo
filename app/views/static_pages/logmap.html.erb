@@ -9,25 +9,29 @@
 
 
 <script>
-	var mapOptions = {
+
+var mapFull;
+var mapOptions = {
    center: new google.maps.LatLng(45.00,0.00),
    zoom: 3,
    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-$.getScript('/assets/maps',function(){
+
+var ready = function() {
+  mapFull = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+  setMarkers(mapFull);
+};
+
 								
                 $(document).ready(ready); 
 
                 $(document).on('page:load',ready);
-       
-google.maps.event.addDomListener(window, "resize", function() {
- var center = map.getCenter();
- google.maps.event.trigger(map, "resize");
- map.setCenter(center); 
-});
-setMarkers(map);
+                
 
-function setMarkers(map) { 
+
+
+function setMarkers(mapFull) { 
 
 	var locationArray = [];
 
@@ -44,7 +48,7 @@ function setMarkers(map) {
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(location_m[1],location_m[2]),
 			title: location_m[0],
-			map: map,
+			map: mapFull,
 			url: location_m[3]
 		});
 		google.maps.event.addListener(marker, 'click', function() {
@@ -52,6 +56,5 @@ function setMarkers(map) {
 });
 	}
 }
-});
 
 </script>

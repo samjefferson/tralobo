@@ -5,11 +5,11 @@
   <title><%=full_title(yield(:title))%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%# google maps api %>
-  <script src="//maps.googleapis.com/maps/api/js"></script>
   <%# bootstrap %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <%# google maps api %>
+  <script src="//maps.googleapis.com/maps/api/js"></script>
   <%# prevents CSRF attack %>
     <%= csrf_meta_tags %>
     <%# font for title page %>
