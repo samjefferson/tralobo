@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
 
-before_action :admin_user,     only: :destroy
+before_action :admin_user, only: :destroy
+before_action :admin_user, only: :update
+
   def new
   	redirect_to root_url unless logged_in?
   	@location = Location.new
@@ -9,8 +11,8 @@ before_action :admin_user,     only: :destroy
   def create
   	@location = Location.create(location_params)
   	if @location.save
-  		redirect_to root_url #will change this later
-  		flash[:success] = 'Entry successful'
+  		flash[:success] = 'Entry successful.'
+      redirect_to @location
   	else
   		render 'new'
   	end
@@ -22,9 +24,23 @@ before_action :admin_user,     only: :destroy
     @log = current_user.logs.build if logged_in?
   end
 
+  def edit
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @location = Location.find(params[:id])
+    if @location.update_attributes(location_params)
+      flash[:success] = "Location updated."
+      redirect_to @location
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
-  	@location = Location.find_by(params[:id]).delete
-  	flash[:success] = Location deleted.
+  	@location = Location.find(params[:id]).delete
+  	flash[:success] = "Location deleted."
   	redirect_to directory_path
   end
 

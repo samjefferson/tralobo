@@ -9,6 +9,7 @@
 	<% if current_user.admin? %>
 		<p>Create new location.</p>
 		<%= form_for(@location) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.label :continent %>
 		<%= f.number_field :continent, class: 'form-control' %>
 		<br>
@@ -25,7 +26,7 @@
 		<% end %>
 
 	<% else %>
-	<p>Request for the follwing city (or rural area) to be added to the directory.<p>
+	<p>Request for the following city (or rural area) to be added to the directory.<p>
 		<%= form_for(@location) do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.hidden_field :continent,  value: 0 %>
@@ -40,15 +41,7 @@
 	</div>
 	<div class='col-xs-3'>
 		<% if current_user.admin? %>
-		<h3>Admin references</h3>
-		<h4>Continent index</h4>
-		<% cont_array.each do |cont_value| %>
-			<small><%= cont_value %>(<%=cont_array.index(cont_value)%>)</small>
-		<% end %>
-		<h4>State index</h4>
-		<% state_array.each do |state_value| %>
-			<small><%= state_value %>(<%=state_array.index(state_value)%>)</small>
-		<% end %>
+		<%= render 'locations/admin_refs' %>
 		<% end %>
 	</div>
 </div>

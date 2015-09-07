@@ -1,0 +1,27 @@
+<% provide(:title, "Edit location") %>
+
+<div class='row'>
+	<div class='col-xs-9 main-panel'>
+		<h1 class='heading'>Edit location</h1>
+
+		<%= form_for(@location) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+			<%= f.label :continent %>
+			<%= f.number_field :continent, class: 'form-control' %>
+			<br>
+			<%= f.label :state %>
+			<%= f.number_field :state, class: 'form-control'%>
+			<br>
+			<%= f.label :city %>
+			<%= f.text_field :city, class: 'form-control' %>
+			<br>
+			<%= f.label :coordinate %>
+			<%= f.text_field :coordinate, class: 'form-control' %>
+			<br>
+			<%= f.submit "Continue", class: "btn btn-default tralobo-btn form-btn" %>
+		<% end %>
+	</div>
+	<div class='col-xs-3 side-panel side-panel-right'>
+		<%= render 'locations/admin_refs' %>
+	</div>
+</div>

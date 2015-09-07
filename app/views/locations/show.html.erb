@@ -63,6 +63,14 @@
 		<%= link_to 'Log in to create Log', login_path, class: 'btn btn-lg btn-default tralobo-btn', id: 'create-log-button' %>
 		<% end %>
 
+		<% if !current_user.nil? %>
+		<% if current_user.admin? %>
+			<h3>Admin controls</h3>
+			<%= link_to 'Edit location', edit_location_path %><br>
+			<%= link_to 'Delete location', @location, method: :delete, data: { confirm: "Are you sure?"} %>
+		<% end %>
+		<% end %>
+
 		<script>
 	var mapOptions = {
    center: new google.maps.LatLng(<%= coordinate_split_first(@location.coordinate) %>,<%= coordinate_split_last(@location.coordinate) %>),

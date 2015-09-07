@@ -1,0 +1,9 @@
+<h3>Admin references</h3>
+		<h4>Continent index</h4>
+		<% cont_array.each do |cont_value| %>
+			<small><%= cont_value %>(<%=cont_array.index(cont_value)%>)</small>
+		<% end %>
+		<h4>State index</h4>
+		<% state_array.each do |state_value| %>
+			<small><%= state_value %>(<%=state_array.index(state_value)%>)</small>
+		<% end %>
