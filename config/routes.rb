@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'location_request' => "locations#create"
   get 'directory' => 'locations#index'
   post 'logs/create'
+  get 'log_map' => 'static_pages#logmap'
 
 
   resources :users

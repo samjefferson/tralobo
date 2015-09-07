@@ -14,4 +14,17 @@ module LocationsHelper
 		@unvalidated_location_number = Location.where( 'continent < 1').count
 	end
 
+	def random_location
+		random_location_id = 1 + rand(Location.count)
+		@random_location = Location.find_by(id: random_location_id)
+	end
+
+	def coordinate_split_first(c_string)
+		c_string.split(',').first.to_f
+	end
+
+	def coordinate_split_last(c_string)
+		c_string.split(',').last.to_f
+	end
+
 end

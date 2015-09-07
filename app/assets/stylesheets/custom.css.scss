@@ -82,17 +82,30 @@ letter-spacing: -1px;
 }
 
 .under-link{
-  color: $dark-grey !important;
+  color: #33333D !important;
+  &:hover{ 
+    color: $dark-grey !important
+  }
+}
+
+/* log map */
+
+.full-map{
+  width: 800px;
+  height: 600px;
+  margin: none;
+  padding: none;
 }
 
 /* homepage */
 
-
+.small-map{
+  width: 200px;
+  height: 200px;
+  border: $light-grey solid 1px;
+  margin-bottom: 10px;
+}
 #map-canvas{
-	width: 200px;
-	height: 200px;
-	border: $light-grey solid 1px;
-	margin-bottom: 10px;
 }
 
 .background{
