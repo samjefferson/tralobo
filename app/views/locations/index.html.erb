@@ -9,7 +9,7 @@
 		  <div class="panel-group">
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
-		        <h4 class="panel-title heading goldy">
+		        <h4 class="panel-title heading under-link">
 		          <a data-toggle="collapse" href="#collapse<%=cont_array.index(cont_value)%>"><%= cont_value %></a>
 		        </h4>
 		      </div>
@@ -26,7 +26,7 @@
         							<% if !city_hash.nil? %>
         								<%city_hash.uniq {|x| x[:city]}%>
         								<%city_hash.sort_by {|e| e[:city].downcase}.each do |city_value| %>
-        									<li class="directory-list"><%= link_to city_value.city, '#', class: 'under-link' %>
+        									<li class="directory-list"><%= link_to city_value.city, city_value, class: 'under-link' %>
         								<% end %>
         							<% else %>
         								<p>Unfortunately there are no logs in this state.</p>

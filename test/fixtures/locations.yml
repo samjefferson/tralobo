@@ -5,3 +5,11 @@ test:
   state: 1
   city: 'example city'
   coordinate: '00.00,00.00'
+
+<% 10.times do |a|%>
+location_no_<%= a %>:
+  continent: 3
+  state: <%= a + 1 %>
+  city: "<%=Faker::Lorem.word%><%= a %>"
+  coordinate: '00.00,00.00'
+<%end%>

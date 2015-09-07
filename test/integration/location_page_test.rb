@@ -4,6 +4,7 @@ class LocationPageTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
 
   def setup
+  	@user = users(:sissoko)
   	@location = locations(:test)
   end
 
@@ -16,5 +17,12 @@ class LocationPageTest < ActionDispatch::IntegrationTest
       assert_match log.title, response.body
     end
 
+	end
+
+	test 'show create log when logged in' do 
+		get location_path(@location)
+		assert_select 'a', text: 'Log in to create log', count: 1
+		log_in_as(@user)
+		assert_select 'a', text: 'Log in to create log', count: 0
 	end
 end

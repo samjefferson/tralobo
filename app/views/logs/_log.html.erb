@@ -1,5 +1,5 @@
 <li id="log-<%= log.id %>">
-  <h3><%= link_to log.title, '#'%></h3>
+  <h3><%= link_to log.title, log%></h3>
   <% if current_page?(controller: 'users') %>
   <% if !log.location.nil? %>
   <p id='city'><%= log.location.city %></p>

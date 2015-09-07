@@ -196,6 +196,11 @@ a.gold-link{
 	color: $goldy;
 }
 
+#wiki{
+  width: 40px;
+  height: 40px;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -245,4 +250,8 @@ input {
 
   #city{
   float: right;
+  }
+
+  #create-log-button{
+  margin-bottom: 10px;
   }

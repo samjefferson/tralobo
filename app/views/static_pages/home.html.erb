@@ -18,7 +18,9 @@
 		<div class='col-xs-3 side-panel side-panel-right'>
 			<h3 class='heading'>Take a look at:</h3>
 			<% random_location_lock = random_location %>
+			<% if !random_location_lock.nil? %>
 			<h2><%= link_to random_location_lock.city, random_location_lock, class: 'under-link heading' %></h2>
+			<%end%> 
 			<br>
 			<div id='map-canvas' class='small-map'>
 
@@ -28,7 +30,7 @@
 
 	<script>
 	var mapOptions = {
-   center: new google.maps.LatLng(<%= coordinate_split_first(random_location_lock.coordinate) %>,<%= coordinate_split_last(random_location_lock.coordinate) %>),
+   center: new google.maps.LatLng(<%= coordinate_split_first(random_location_lock.coordinate) if !random_location_lock.nil? %>,<%= coordinate_split_last(random_location_lock.coordinate) if !random_location_lock.nil? %>),
    zoom: 8,
    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
