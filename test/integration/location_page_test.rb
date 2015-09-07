@@ -19,10 +19,4 @@ class LocationPageTest < ActionDispatch::IntegrationTest
 
 	end
 
-	test 'show create log when logged in' do 
-		get location_path(@location)
-		assert_select 'a', text: 'Log in to create log', count: 1
-		log_in_as(@user)
-		assert_select 'a', text: 'Log in to create log', count: 0
-	end
 end
