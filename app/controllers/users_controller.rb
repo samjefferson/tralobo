@@ -49,4 +49,11 @@ class UsersController < ApplicationController
   		params.require(:user).permit(:username, :email, :password, :password_confirmation)
   	end
 
+    def admin_user
+      if !current_user.nil?
+        redirect_to(root_url) unless current_user.admin?
+      else
+        redirect_to(root_url)
+      end
+    end
 end

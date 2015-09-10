@@ -1,6 +1,7 @@
 class LogsController < ApplicationController
 
 before_action :logged_in_user, only: [:new, :create, :destroy]
+before_action :admin_user, only: :destroy
 
 def show
 	@log = Log.find(params[:id])
@@ -24,6 +25,9 @@ def create
 end
 
 def destroy
+	Log.find(params[:id]).destroy
+   flash[:success] = "Log deleted"
+    redirect_to root_path
 end
 
 private

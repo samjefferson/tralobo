@@ -16,4 +16,12 @@ private
     end
   end
 
+   def admin_user
+      if !current_user.nil?
+        redirect_to(root_url) unless current_user.admin?
+      else
+        redirect_to(root_url)
+      end
+    end
+    
 end
