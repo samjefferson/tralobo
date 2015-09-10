@@ -2,17 +2,18 @@
 
 <div class='row'>
 	<div class='col-xs-9 main-panel'>
-		<h1 class='heading'>Your Logs</h1>
-		<ul class='nav nav-tabs'>
-			<li class='active'><a href='#' class='gold-link'>Latest</a></li>
-			<li><a href='#' class='gold-link'>Most Popular</a></li>
-		</ul>
+		<h1 class='heading'>Your Logs and comments</h1>
 		<% if @user.logs.any? %>
-			<h3><%= @user.logs.count %> logs posted</h3>
+			<h3><%= @user.logs.count %> Logs posted</h3>
+
+		<%= will_paginate @logs %>
+		<div class='row equal'>	
+
+		<div class='col-xs-6 truncate'>
+			<h2 class='heading under-link'>Latest Logs</h2>
 			<ol class='logs'>
 				<%= render @logs %>
 			</ol>
-			<%= will_paginate @logs %>
 			<% else %>
 			<h3 class='heading'>No logs yet.</h3>
 			<p>When you post a log it will be displayed here.</p>
@@ -21,6 +22,24 @@
 			<p>Your logs can be voted on by members, more popular logs will receive more attention and earn you more log points. </p>
 			<br>
 			<%end%>
+		</div>
+		<div class='col-xs-6 truncate'>
+			<h2 class='heading under-link'>Popular Logs</h2>
+		</div>
+	</div>
+		<br>
+		<h2 class='heading under-link'>Comments</h2>
+		<% if @user.comments.any? %>
+			<ol class='comments'>
+				<%= render @comments %>
+			</ol>
+		<% else %>
+
+			<br>
+			<p>No comments yet.</p>
+
+		<%end%>
+		
 	</div>
 	<div class='col-xs-3 side-panel side-panel-right'>
 		<h3><%= @user.username %></h3>

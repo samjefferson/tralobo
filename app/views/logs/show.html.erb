@@ -20,7 +20,7 @@
 			<ol class='comments'>
 				<%= render @comments %>
 			</ol>
-			<% will_paginate @comments %>
+			<%= will_paginate @comments %>
 
 		<%else%>
 			<br>
@@ -31,17 +31,21 @@
 	</div>
 
 	<div class='col-xs-3 side-panel side-panel-right'>
+		<% if !@log.location.nil? %>
 		<h3><%= link_to @log.location.city, @log.location, class: 'heading under-link' %></h3>
+		<% end %>
 		<div id='map-canvas' class='small-map'>
 		</div>
 
 		<br>
 
+		<% if current_user %>
 		<% if current_user.admin? %>
 		<h3>Admin controls</h3>
 		<%= link_to 'Delete this log', @log, method: 'delete', data: { confirm: "Are you sure?"} %>
 		<% end %>
-
+		<% end %>
+		<% if @log.location %>
 		<script>
 	var mapOptions = {
    center: new google.maps.LatLng(<%= coordinate_split_first(@log.location.coordinate) %>,<%= coordinate_split_last(@log.location.coordinate) %>),
@@ -57,4 +61,5 @@ var ready = function() {
                 $(document).on('page:load',ready); 
 
 </script>
+<% end %>
 	</div>

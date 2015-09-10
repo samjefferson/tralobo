@@ -13,8 +13,11 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 		assert_select 'title', full_title(@user.username)
 		assert_match @user.logs.count.to_s, response.body
 		assert_select 'div.pagination'
-		@user.logs.paginate(page: 1).each do |log|
+		@user.logs.paginate(page: 1, per_page: 5).each do |log|
       assert_match log.title, response.body
+    end
+    @user.comments.paginate(page: 1, per_page: 5).each do |comment|
+    	assert_match comment.contect, response.body
     end
 
 	end

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @logs = @user.logs.paginate(page: params[:page])
-    @comments = @user.comments.paginate( page: params[:page])
+    @logs = @user.logs.paginate(page: params[:page], per_page: 5)
+    @comments = @user.comments.paginate( page: params[:page], per_page: 5)
     if !current_user.nil?
 
       unless current_user?(@user) || current_user.admin? 
@@ -13,8 +13,6 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-
-    @comments = @user.comments.paginate( page: params[:page])
 
   end
 
@@ -49,11 +47,4 @@ class UsersController < ApplicationController
   		params.require(:user).permit(:username, :email, :password, :password_confirmation)
   	end
 
-    def admin_user
-      if !current_user.nil?
-        redirect_to(root_url) unless current_user.admin?
-      else
-        redirect_to(root_url)
-      end
-    end
 end

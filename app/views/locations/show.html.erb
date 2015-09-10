@@ -26,15 +26,19 @@
 
 <% end %>
 		<br>
-		<ul class='nav nav-tabs'>
-			<li class='active'><a href='#' class='under-link'>Latest</a></li>
-			<li><a href='#' class='under-link'>Most Popular</a></li>
-		</ul>
 		<% if @location.logs.any? %>
 			<h3 class='under-link'><%= @location.logs.count %> logs posted</h3>
-			<ol class='logs'>
-				<%= render @logs %>
-			</ol>
+			<div class='row'>
+				<div class='col-xs-6'>
+				<h3 class='heading under-link'>Latest Logs</h3>
+					<ol class='logs'>
+						<%= render @logs %>
+					</ol>
+				</div>
+				<div class='col-xs-6'>
+				<h3 class='heading under-link'>Most popular Logs</h3>
+			</div>
+
 			<%= will_paginate @logs %>
 			<% else %>
 			<h3 class='under-link'>No logs yet.</h3>
