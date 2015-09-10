@@ -33,7 +33,7 @@ class LogTest < ActiveSupport::TestCase
 	end
 
 	test 'content too long' do
-		@log.content = 'a' * 1001
+		@log.content = 'a' * 2001
 		assert_not @log.valid?
 	end
 

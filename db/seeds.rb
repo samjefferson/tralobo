@@ -22,3 +22,11 @@ end
 end
 
 Location.create(continent: 0, state: 1, city: 'Gotham', coordinate: '00.00,00.00')
+
+user = User.first
+logs = Log.where(user_id: user.id).order(:created_at).take(3)
+
+5.times do
+  content = Faker::Lorem.sentence(4)
+  logs.each { |log| log.comments.create!(content: content, user_id: 1) }
+end

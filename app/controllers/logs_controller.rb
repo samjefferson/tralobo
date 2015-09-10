@@ -4,6 +4,7 @@ before_action :logged_in_user, only: [:new, :create, :destroy]
 
 def show
 	@log = Log.find(params[:id])
+	@comments = @log.comments.paginate( page: params[:page])
 end
 
 def new

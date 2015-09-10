@@ -8,6 +8,27 @@
 		<br>
 		<p><%=@log.content%></p>
 
+		<br>
+		<br>
+		<h3 class='heading under-link'>Comments:</h3>
+		<ul class='nav nav-tabs'>
+			<li class='active'><a href='#' class='under-link'>Latest</a></li>
+			<li><a href='#' class='under-link'>Most Popular</a></li>
+		</ul>
+		<br>
+		<% if @log.comments.any? %>
+
+			<ol class='comments'>
+				<%= render @comments %>
+			</ol>
+			<% will_paginate @comments %>
+
+		<%else%>
+			<br>
+			<p>No comments yet.</p>
+
+		<%end%>
+
 	</div>
 
 	<div class='col-xs-3 side-panel side-panel-right'>

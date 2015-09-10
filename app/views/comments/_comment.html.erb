@@ -1,0 +1,31 @@
+<div class='well'>
+<li id 'comment-<%=comment.id%>'>
+	<% if current_page?(controller: 'users') %>
+			
+		<% if !comment.log.nil? %>
+
+			<h4 class="heading under-link"><%= comment.log.title %></h4>
+
+		<% end %>
+	<% end %>
+
+	<% if current_page?(controller: 'logs', action: 'show') %>
+
+		<% if !comment.user.nil? %>
+
+			<h4 class="heading under-link"><%=comment.user.username %></h4>
+
+		<% end %>
+
+	<% end %>
+
+	<br>
+	<p><%= comment.content %>
+	</p>
+
+	<small class="timestamp">
+    <%= time_ago_in_words(comment.created_at) %> ago.
+  </small>
+  <br>
+</li>
+</div>
