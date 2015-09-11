@@ -1,8 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+test:
+  content: "Yo, man"
+  user_id: 3
+  log: twenty
+
 <% 31.times do |a| %>
 comment-<%= a %>:
-  content: MyText
+  content: "MyText"
   user_id: 3
   log: thirty
 <% end %>
