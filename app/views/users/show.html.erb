@@ -3,42 +3,57 @@
 <div class='row'>
 	<div class='col-xs-9 main-panel'>
 		<h1 class='heading'>Your Logs and comments</h1>
-		<% if @user.logs.any? %>
-			<h3><%= @user.logs.count %> Logs posted</h3>
+		
+		<% if @user.logs.any? || @user.comments.any? %>
+			
+			<% if @user.logs.any? %>
+				
+				<h3><%= @user.logs.count %> Logs posted</h3>
+				<%= will_paginate @logs %>
 
-		<%= will_paginate @logs %>
-		<div class='row equal'>	
+				<div class='row'>	
 
-		<div class='col-xs-6 truncate'>
-			<h2 class='heading under-link'>Latest Logs</h2>
-			<ol class='logs'>
-				<%= render @logs %>
-			</ol>
+					<div class='col-xs-6 truncate'>
+						
+						<h2 class='heading under-link'>Latest Logs</h2>
+					
+						<ol class='logs'>
+							<%= render @logs %>
+						</ol>
+						<br>
+
+					</div>
+
+					<div class='col-xs-6 truncate'>
+					
+						<h2 class='heading under-link'>Popular Logs</h2>
+	
+					</div>
+				</div>
+
 			<% else %>
-			<h3 class='heading'>No logs yet.</h3>
-			<p>When you post a log it will be displayed here.</p>
-			<br>
-			<br>
-			<p>Your logs can be voted on by members, more popular logs will receive more attention and earn you more log points. </p>
-			<br>
-			<%end%>
-		</div>
-		<div class='col-xs-6 truncate'>
-			<h2 class='heading under-link'>Popular Logs</h2>
-		</div>
-	</div>
-		<br>
-		<h2 class='heading under-link'>Comments</h2>
-		<% if @user.comments.any? %>
+				<%= will_paginate @comments %>
+ 			<% end %>
+ 			
+ 			<h2 class='heading under-link'>Comments</h2>
+			
 			<ol class='comments'>
 				<%= render @comments %>
 			</ol>
+		
 		<% else %>
 
 			<br>
-			<p>No comments yet.</p>
+			<p><b>You haven't posted any Logs or comments yet.</b></p>
+			<br>
+			<p>You can use the directory or the Logmap to select a location and create a Log. You Log can be voted and commented on by the community, and you can vote and comment on any Log you view.<p>
+			<br>
+			<p> Your Log can be voted and commented on by the community, and you can vote and comment on any Log you view.</p> 
 
-		<%end%>
+		<% end %>
+
+
+
 		
 	</div>
 	<div class='col-xs-3 side-panel side-panel-right'>
@@ -46,19 +61,22 @@
 		<h5 class='heading'>Log-Points:</h5><br>
 
 		<p>No new notifications</p>
+		
 		<% if @user.admin? %>
-		<p> You are an admin user </p>
+			<p> You are an admin user </p>
 		<% end %>
+		
 		<% if current_user.admin? %>
-		<div class='well'>
-		<h4>Admin controls</h4>
-		<% if !current_user?(@user) %>
-		<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: "Are you sure?" } %>
-		<% else %>
-		<p><%= link_to 'Unvalidated locations', '#' %> (<%= unvalidated_location_number %>)</p> 
-		<% end %>
-	</div>
-		<% end %>
+			<div class='well'>
+				<h4>Admin controls</h4>
+				
+				<% if !current_user?(@user) %>
+					<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: "Are you sure?" } %>
+				<% else %>
+					<p><%= link_to 'Unvalidated locations', '#' %> (<%= unvalidated_location_number %>)</p> 
+				<% end %>
 
+		</div>
+		<% end %>
 	</div>
 </div>

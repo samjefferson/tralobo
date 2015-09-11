@@ -2,9 +2,11 @@
 
 <div class='row'>
 	<div class='col-xs-9 main-panel'>
+		<div class='title-tab'>
 		<h1><%= @log.title%></h1>
 		<br>
 		<h3>by <b><%=@log.user.username%></b></h3>
+	</div>
 		<br>
 		<p><%=@log.content%></p>
 
@@ -14,6 +16,31 @@
 		<ul class='nav nav-tabs'>
 			<li class='active'><a href='#' class='under-link'>Latest</a></li>
 		</ul>
+		<br>
+
+		<% if logged_in? %>
+
+			<a data-toggle="collapse" data-target="#new-comment" class='btn btn-lg btn-default tralobo-btn' id='create-comment-button'>Add comment</a>
+			<br>
+			<div id='new-comment' class='collapse well'>	
+				<%= form_for(@comment) do |f| %>
+					<%= render 'shared/error_messages', object: f.object %>
+				  <div class="field">
+			  	
+		  			<%= f.hidden_field :log_id, value: @log.id %>	  	
+		  			<br>
+		   	
+		   		  <%= f.text_area :content, placeholder: "Add comment...", class: 'form-control', maxlength: 250 %>
+			  	
+			  	</div>
+			  	
+			  	<br>
+			  	
+			  	<%= f.submit "Submit",class: 'btn btn-default tralobo-btn form-btn' %>
+		  	<% end %>
+		  </div>
+
+		<% end %>
 		<br>
 		<% if @log.comments.any? %>
 
@@ -42,7 +69,7 @@
 		<% if current_user %>
 		<% if current_user.admin? %>
 		<h3>Admin controls</h3>
-		<%= link_to 'Delete this log', @log, method: 'delete', data: { confirm: "Are you sure?"} %>
+		<%= link_to 'Delete this log', @log, method: :delete, data: { confirm: "Are you sure?"} %>
 		<% end %>
 		<% end %>
 		<% if @log.location %>

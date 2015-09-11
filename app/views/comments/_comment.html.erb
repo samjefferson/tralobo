@@ -26,6 +26,11 @@
 	<small class="timestamp">
     <%= time_ago_in_words(comment.created_at) %> ago.
   </small>
+  <% if current_user %>
+  <% if current_user.admin? %>
+  <%= link_to 'Admin Delete', comment, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+  <% end %>
   <br>
 </li>
 </div>

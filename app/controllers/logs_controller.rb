@@ -6,6 +6,7 @@ before_action :admin_user, only: :destroy
 def show
 	@log = Log.find(params[:id])
 	@comments = @log.comments.paginate( page: params[:page], per_page: 10)
+	@comment = current_user.comments.build if logged_in?
 end
 
 def new

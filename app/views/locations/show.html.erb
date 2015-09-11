@@ -1,58 +1,78 @@
 <% provide(:title, @location.city) %>
 
 <div class='row'>
+	
 	<div class='col-xs-9 main-panel'>
-		<h1 class='heading'><%=@location.city %></h1>
-		<%= image_tag 'wp.png', id: 'wiki' %>
-		<%= link_to "#{@location.city} on Wikipedia", "https://en.wikipedia.org/wiki/#{@location.city}" %> 
-		<br>
-<% if logged_in? %>
+		<div class='title-tab'>
+			<h1 class='heading'><%=@location.city %></h1>
+			<%= image_tag 'wp.png', id: 'wiki' %>
+			<%= link_to "#{@location.city} on Wikipedia", "https://en.wikipedia.org/wiki/#{@location.city}" %> 
+		</div>
+			
+		<% if logged_in? %>
 		
-		<div id='new-log' class='collapse well'>
-			<p>Neither the title nor the content may be left blank.  The character limit for the content is 1000.</p>
-			<%= form_for(@log) do |f| %>
-			<%= render 'shared/error_messages', object: f.object %>
-  		<div class="field">
-  			<%= f.label :title %>
-  			<%= f.text_field :title, class: 'form-control' %>
-  			<%= f.hidden_field :location_id, value: @location.id %>
-  			<br>
-   		  <%= f.text_area :content, placeholder: "Create new Log...", class: 'form-control', maxlength: 1000 %>
-  		</div>
-  		<br>
-  		<%= f.submit "Submit",class: 'btn btn-default tralobo-btn form-btn' %>
-  	<% end %>
-  </div>
+			<div id='new-log' class='collapse well'>
+			
+				<p>Neither the title nor the content may be left blank.  The character limit for the content is 1000.</p>
+				
+				<%= form_for(@log) do |f| %>
+					<%= render 'shared/error_messages', object: f.object %>
+		  	
+		  		<div class="field">
+		  	
+		  			<%= f.label :title %>
+		  			<%= f.text_field :title, class: 'form-control' %>
+		  			<%= f.hidden_field :location_id, value: @location.id %>
+		  	
+		  			<br>
+		   	
+		   		  <%= f.text_area :content, placeholder: "Create new Log...", class: 'form-control', maxlength: 1000 %>
+		  	
+		  		</div>
+		  	
+		  		<br>
+		  	
+		  		<%= f.submit "Submit",class: 'btn btn-default tralobo-btn form-btn' %>
+	  		<% end %>
+	  </div>
 
-<% end %>
-		<br>
-		<% if @location.logs.any? %>
-			<h3 class='under-link'><%= @location.logs.count %> logs posted</h3>
-			<div class='row'>
-				<div class='col-xs-6'>
+	<% end %>
+
+	<br>
+	
+	<% if @location.logs.any? %>
+		<h3 class='under-link'><%= @location.logs.count %> logs posted</h3>
+
+		<div class='row'>
+		
+			<div class='col-xs-6'>
 				<h3 class='heading under-link'>Latest Logs</h3>
-					<ol class='logs'>
-						<%= render @logs %>
-					</ol>
-				</div>
-				<div class='col-xs-6'>
+				<ol class='logs'>
+					<%= render @logs %>
+				</ol>
+				<%= will_paginate @logs %>
+			</div>
+			
+			<div class='col-xs-6'>
 				<h3 class='heading under-link'>Most popular Logs</h3>
 			</div>
+		</div>
 
-			<%= will_paginate @logs %>
-			<% else %>
+		<% else %>
+		
 			<h3 class='under-link'>No logs yet.</h3>
-			<br>
 			<br>
 			<p>When a log is posted for this location, it will be displayed here.</p>
 			<br>
-			<br>
 			<p>Why not get started and post a log of your experience in this location.</p>
 			<br>
+			<p>To search for another location, visit the <b><%= link_to 'directory', directory_path %></b>.</p>
 			<br>
-			<p>To search for another location visit the <%= link_to 'directory.', directory_path %></p>
+			<p>To see a map of locations users have inputted, visit the <b><% link_to 'LogMap', logmap_path%></b>.</p>
+	</div>
 			<%end%>
 	</div>
+
 	<div class='col-xs-3 side-panel side-panel-right'>
 
 		<h3 class='heading'> Explore:</h3>
@@ -92,4 +112,5 @@ var ready = function() {
 </script>
 
 
+</div>
 </div>
