@@ -275,6 +275,9 @@ input {
   margin-bottom: 10px;
   }
 
+  .float-right{
+  float: right;
+  }
   /* comments */
 
   .comments{
@@ -296,4 +299,14 @@ input {
     font: inherit;
     float: left;
     color: blue;
+  }
+
+  /* score */
+
+  .green-score{
+    color: green !important;
+  }
+
+  .red-score{
+    color: red !important;
   }

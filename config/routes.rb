@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "logs#upvote"
       put "dislike", to: "logs#downvote"
+      put "cancel", to: "logs#unvote"
     end
   end
   resources :comments

@@ -6,9 +6,6 @@
 		<h1><%= @log.title%></h1>
 		<br>
 		<h3>by <b><%=@log.user.username%></b></h3>
-		<%= link_to "Vote +", like_log_path(@log), method: :put %>
-		<h3><%= @log.score %></h3>
-		<%= link_to "Vote -", dislike_log_path(@log), method: :put %>
 	</div>
 		<br>
 		<p><%=@log.content%></p>
@@ -68,7 +65,20 @@
 		</div>
 
 		<br>
+		<% if @upvoted %>
+			<%= link_to "Cancel vote", cancel_log_path(@log), method: :put, class: 'heading under-link' %>
+		<% else %>
+			<%= link_to "Vote +", like_log_path(@log), method: :put, class: 'heading under-link' %>
+		<% end %>
+		
+		<%= render 'logs/score' %>
 
+		<% if @downvoted %>
+			<%= link_to "Cancel vote", cancel_log_path(@log), method: :put, class: 'heading under-link' %>
+		<% else %>
+			<%= link_to "Vote -", dislike_log_path(@log), method: :put, class: 'heading under-link' %>
+		<% end %>
+		
 		<% if current_user %>
 		<% if current_user.admin? %>
 		<h3>Admin controls</h3>

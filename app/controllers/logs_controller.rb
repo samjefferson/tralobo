@@ -8,6 +8,9 @@ def show
 	@log = Log.find(params[:id])
 	@comments = @log.comments.paginate( page: params[:page], per_page: 10)
 	@comment = current_user.comments.build if logged_in?
+
+	@upvoted = current_user.voted_up_on? @log
+	@downvoted = current_user.voted_down_on? @log
 end
 
 def new
@@ -44,7 +47,11 @@ def downvote
 	redirect_to @log
 end
 
-
+def unvote
+	@log = Log.find(params[:id])
+	@log.unvote_by current_user
+	redirect_to @log
+end
 
 private
 	

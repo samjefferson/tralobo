@@ -1,16 +1,31 @@
 <li id="log-<%= log.id %>">
+    <div class='float-right'>
+  <% @log = log %>
+  <%= render 'logs/score' %>
+</div>
   <h3><%= link_to log.title, log%></h3>
+  
   <% if current_page?(controller: 'users') %>
-  <% if !log.location.nil? %>
-  <p id='city'><%= log.location.city %></p>
-  <%end%>
+    <% if !log.location.nil? %>
+  
+      <p id='city'><%= log.location.city %></p>
+    
+    <%end%>
   <% end %>
+  
   <% if current_page?(controller: 'locations') %>
-  	<% if !log.user.nil? %>
-  		<p id='city'><%= log.user.username %></p>
-  	<% end %>
+  	
+    <% if !log.user.nil? %>
+  	
+    	<p id='city'><%= log.user.username %></p>
+  	
+    <% end %>
+  
   <% end %>
+  
+
   <small class="timestamp">
     Posted <%= time_ago_in_words(log.created_at) %> ago.
   </small>
+
 </li>

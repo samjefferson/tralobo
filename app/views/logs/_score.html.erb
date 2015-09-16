@@ -1,0 +1,11 @@
+
+<% if @log.score > 0 %>
+	<h3 class="heading green-score float-score">+<%= @log.score %></h3>
+<% elsif @log.score == 0 %>
+	<h3 class="heading float-score"><%= @log.score %></h3>
+<% else %>
+	<h3 class="heading red-score float-score"><%= @log.score %></h3>
+<% end %>
+
+
+
