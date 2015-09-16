@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 	before_action :logged_in_user, only: :create
-	before_action :admin_user, only: :destroy
+	before_action :admin_user, only: [:destroy, :update]
 
 	def show
 		@comment = Comment.find(params[:id])
@@ -23,6 +23,14 @@ class CommentsController < ApplicationController
 		flash[:success] = "Comment deleted"
 		redirect_to request.referrer || root_url
 	end
+
+	def update
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(comment_params)
+      flash[:success] = "Comment censored."
+      redirect_to @comment.log
+    end
+  end
 
 
 	private

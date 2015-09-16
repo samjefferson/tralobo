@@ -7,7 +7,7 @@ test:
 
 <% 31.times do |a| %>
 comment-<%= a %>:
-  content: "MyText"
+  content: "text"
   user_id: 3
   log: thirty
 <% end %>

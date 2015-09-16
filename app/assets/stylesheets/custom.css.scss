@@ -282,3 +282,18 @@ input {
   list-style: none;
 
   }
+
+  .censored{
+  color: red;
+  font-weight: bold;
+  }
+
+  .link-button{
+
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    float: left;
+    color: blue;
+  }
