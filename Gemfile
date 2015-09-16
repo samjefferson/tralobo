@@ -39,3 +39,4 @@ end
 
 gem 'therubyracer'
 gem 'jquery-turbolinks'
+gem 'acts_as_votable'

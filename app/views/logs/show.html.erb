@@ -6,6 +6,9 @@
 		<h1><%= @log.title%></h1>
 		<br>
 		<h3>by <b><%=@log.user.username%></b></h3>
+		<%= link_to "Vote +", like_log_path(@log), method: :put %>
+		<h3><%= @log.score %></h3>
+		<%= link_to "Vote -", dislike_log_path(@log), method: :put %>
 	</div>
 		<br>
 		<p><%=@log.content%></p>

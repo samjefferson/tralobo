@@ -22,7 +22,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :locations
-  resources :logs, only: [:show, :create, :destroy]
+  resources :logs, only: [:show, :create, :destroy] do
+    member do
+      put "like", to: "logs#upvote"
+      put "dislike", to: "logs#downvote"
+    end
+  end
   resources :comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

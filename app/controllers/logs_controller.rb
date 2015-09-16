@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
 
+include SessionsHelper
 before_action :logged_in_user, only: [:new, :create, :destroy]
 before_action :admin_user, only: :destroy
 
@@ -30,6 +31,20 @@ def destroy
    flash[:success] = "Log deleted"
     redirect_to root_path
 end
+
+def upvote
+	@log = Log.find(params[:id])
+	@log.upvote_by current_user
+	redirect_to @log
+end
+
+def downvote
+	@log = Log.find(params[:id])
+	@log.downvote_by current_user
+	redirect_to @log
+end
+
+
 
 private
 	
