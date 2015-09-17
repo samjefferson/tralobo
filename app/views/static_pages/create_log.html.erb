@@ -1,9 +1,21 @@
 <div class='row'>
 	<div class='col-xs-9'>
-		<h1>To create a log</h1>
+		
+		<div class='title-tab'>
+		
+			<h1 class='heading'>To create a log</h1>
 
-		<p>To create a log please find the location that you want your log to be at in the directory.  If you can't find the location you want you can create a new location.</p>
+		</div>
+
 		<br>
-		<%= link_to "Directory", directory_path, class: 'btn btn-lg btn-default tralobo-btn' %>
+
+		<p>To create a log please find the location that you want your log to be at in the directory or on the log map.  If you can't find the location you want you can create a new location.</p>
+		
+		<br>
+		
+		<%= link_to "Directory", directory_path, class: 'btn btn-lg btn-default tralobo-btn under-link full-button' %>
+		<br><br>
+		<%= link_to "LogMap", log_map_path, class: 'btn btn-lg btn-default tralobo-btn under-link full-button' %>
+	
 	</div>
 </div>

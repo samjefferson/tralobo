@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
 
+before_action :logged_in_user, only: [:new, :create]
 before_action :admin_user, only: :destroy
 before_action :admin_user, only: :update
 
   def new
-  	redirect_to root_url unless logged_in?
   	@location = Location.new
   end
 

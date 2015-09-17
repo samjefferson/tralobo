@@ -11,7 +11,7 @@ private
 
   def logged_in_user
 		unless logged_in?
-        flash[:danger] = "You must be logged in to view this page."
+        flash[:danger] = "You must be logged in for this action."
         redirect_to login_url
     end
   end

@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
 
 include SessionsHelper
-before_action :logged_in_user, only: [:new, :create, :destroy]
+before_action :logged_in_user, only: [:new, :create, :destroy, :upvote, :downvote, :unvote]
 before_action :admin_user, only: :destroy
 
 def show
@@ -9,8 +9,8 @@ def show
 	@comments = @log.comments.paginate( page: params[:page], per_page: 10)
 	@comment = current_user.comments.build if logged_in?
 
-	@upvoted = current_user.voted_up_on? @log
-	@downvoted = current_user.voted_down_on? @log
+	@upvoted = current_user.voted_up_on? @log if !current_user.nil?
+	@downvoted = current_user.voted_down_on? @log if !current_user.nil?
 end
 
 def new

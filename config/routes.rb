@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'help' => "static_pages#help"
+  get "home_create" => "static_pages#create_log"
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

@@ -1,12 +1,12 @@
 <div class='well'>
 <li id 'comment-<%=comment.id%>'>
-	<% if current_page?(controller: 'users') %>
+	<% if current_page?(controller: 'users', action: 'show') %>
 			
-		<% if !comment.log.nil? %>
+		<%# if !comment.log.nil? %>
 
-			<h4 class="heading under-link"><%= comment.log.title %></h4>
+			<h4>On: <%= comment.log.title %></h4>
 
-		<% end %>
+		<%# end %>
 	<% end %>
 
 	<% if current_page?(controller: 'logs', action: 'show') %>
