@@ -6,6 +6,9 @@ class Log < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC')}
 
+  
+
+
   validates :user_id, presence: true
   validates :location_id, presence: true
 

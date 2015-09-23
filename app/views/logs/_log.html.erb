@@ -5,7 +5,7 @@
 </div>
   <h3><%= link_to log.title, log%></h3>
   
-  <% if current_page?(controller: 'users') %>
+  <% if current_page?(controller: 'users', action: 'show') %>
     <% if !log.location.nil? %>
   
       <p id='city'><%= log.location.city %></p>
@@ -13,7 +13,7 @@
     <%end%>
   <% end %>
   
-  <% if current_page?(controller: 'locations') %>
+  <% if current_page?(controller: 'locations', action: 'show') %>
   	
     <% if !log.user.nil? %>
   	

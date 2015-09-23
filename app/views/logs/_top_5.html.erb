@@ -1,0 +1,20 @@
+<% Log.reorder('cached_votes_score DESC').first(5).each do |log| %>
+
+
+  <li>
+      <div class='float-right'>
+    <% @log = log %>
+    <%= render 'logs/score' %>
+  </div>
+    <h3><%= link_to log.title, log%></h3>
+      
+        <p id='city'><%= log.location.city %></p>
+      
+
+    <small class="timestamp">
+      Posted <%= time_ago_in_words(log.created_at) %> ago.
+    </small>
+
+  </li>
+
+<% end %>

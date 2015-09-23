@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916144618) do
+ActiveRecord::Schema.define(version: 20150923115715) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -41,11 +41,14 @@ ActiveRecord::Schema.define(version: 20150916144618) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "title"
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
   end
 
+  add_index "logs", ["cached_votes_score"], name: "index_logs_on_cached_votes_score"
   add_index "logs", ["location_id", "created_at"], name: "index_logs_on_location_id_and_created_at"
   add_index "logs", ["location_id"], name: "index_logs_on_location_id"
   add_index "logs", ["user_id", "created_at"], name: "index_logs_on_user_id_and_created_at"
