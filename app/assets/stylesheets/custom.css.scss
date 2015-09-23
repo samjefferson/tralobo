@@ -37,6 +37,16 @@ letter-spacing: -1px;
 
 /* layout */ 
 
+.hot-logs{
+  list-style: none;
+  margin-left: none;
+}
+
+.log-item{
+  margin-botton: 20px;
+  margin-left: none;
+}
+
 .title-tab{
   border-bottom: $light-grey solid 1px;
   padding-bottom: 10px;

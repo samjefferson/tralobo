@@ -1,5 +1,24 @@
-<h5 class='heading'>Hot Logs</h5>
-<p>list to come</p>
-<h5 class='heading'>Hot spots</h5>
-<p>list to come</p>
+<h5 class='heading'>Today's Hot Logs</h5>
+
+<ol class='hot-logs logs'>
+
+<% if !hot_logs[0].nil? %>	
+
+<% hot_logs.each do |log| %>
+	<li> 
+		<div class='float-right'>
+			<% @log = log %>
+			<%=render 'logs/score'%>
+		</div>
+		<h5 class='under-link log-item truncate'><%= log.location.city %>:<br> <%= link_to log.title, log %> </h5></li>
+<% end %>
+
+<% else %>
+
+<p>No Logs Today</p>
+
+<% end %>
+
+</ol>
+
 

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include LocationsHelper
   include ApplicationHelper
+  include LogsHelper
 
 private
 
@@ -23,5 +24,7 @@ private
         redirect_to(root_url)
       end
     end
+
+
     
 end
