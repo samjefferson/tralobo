@@ -81,7 +81,7 @@ letter-spacing: -1px;
 
 .nav{
 	font-family: 'Kaushan Script', cursive;
-	color: $goldy !important;
+	color: $goldy;
 }
 
 .goldy{
@@ -251,7 +251,7 @@ input {
 /*directory*/
 
 .directory-list{
-  list-style: none;
+  list-style: none important;
   padding: 5px;
 
 }
