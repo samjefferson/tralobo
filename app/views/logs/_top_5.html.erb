@@ -1,4 +1,4 @@
-<% Log.reorder('cached_votes_score DESC').first(5).each do |log| %>
+<% Log.where(user: @user).reorder('cached_votes_score DESC').first(5).each do |log| %>
 
 
   <li>

@@ -18,7 +18,7 @@
         			<% state_hash = Location.where("continent = #{cont_array.index(cont_value)}")%>
         			<% if !state_hash.nil? %>
         				<% state_hash.uniq {|x| x[:state]} %>
-        				<% state_hash.sort_by { |e| e[:state] }.each do |state_value| %>
+        				<% state_hash.sort_by { |e| e[:state] }.uniq {|x| x[:state] }.each do |state_value| %>
         					<li><a data-toggle='collapse' href="#collapseS<%=state_value.state%>"><%= state_array[state_value.state] %></a></li>
         					<div id="collapseS<%=state_value.state%>" class="panel-collapse collapse">
         						<ul class="list-group">
