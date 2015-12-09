@@ -35,7 +35,13 @@ letter-spacing: -1px;
 	}
 }
 
-/* layout */ 
+/* layout */
+
+ 
+
+.white{
+  white-space: pre-wrap;
+}
 
 .hot-logs{
   list-style: none;
@@ -109,7 +115,7 @@ letter-spacing: -1px;
 .under-link{
   color: #33333D !important;
   &:hover{ 
-    color: $dark-grey !important
+    color: $dark-grey !important;
   }
 }
 

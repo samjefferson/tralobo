@@ -23,7 +23,7 @@
 	<% if comment.content == "This content has been removed by the administrator." %>
 		<p class='censored'><%= comment.content %></p>
 	<% else %>
-		<p><%= raw comment.content %>
+		<p><%= raw comment.content.gsub(/\n/, '<br>') %>
 		</p>
 	<% end %>
 

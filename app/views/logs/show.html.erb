@@ -8,8 +8,9 @@
 		<h3>by <b><%=@log.user.username%></b></h3>
 	</div>
 		<br>
-		<p><%=raw @log.content%></p>
-
+		<div class='well'>
+			<p><%= raw @log.content.gsub(/\n/, '<br>')%></p>
+		</div>
 		<br>
 		<br>
 		<h3 class='heading under-link'>Comments:</h3>
