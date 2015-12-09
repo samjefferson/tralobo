@@ -7,5 +7,8 @@ class Comment < ActiveRecord::Base
   validates :log_id, presence: true
 
   validates :content, presence: true, length: { maximum: 250 }
+
+  before_save { self.content = "<pre>#{self.content}</pre>".html_safe }
+
 end
 

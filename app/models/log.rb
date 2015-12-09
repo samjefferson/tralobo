@@ -6,7 +6,7 @@ class Log < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC')}
 
-  
+  before_save { self.content = "<pre>#{self.content}</pre>".html_safe }
 
 
   validates :user_id, presence: true
