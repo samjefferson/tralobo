@@ -9,7 +9,7 @@
 	</div>
 		<br>
 		<div class='well'>
-			<p><%= raw @log.content.gsub(/\n/, '<br>')%></p>
+			<p><%= raw @log.content.gsub(/<\w+>/, ' ' ).gsub(/\n/, '<br>')%></p>
 		</div>
 		<br>
 		<br>
