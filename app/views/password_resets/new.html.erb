@@ -1,0 +1,13 @@
+<% provide(:title, 'Password Reset Request') %>
+<div class='row'>
+	<div class='col-xs-9 main-panel'>
+		<h1 class='heading'>Send Password Reset Email</h1>
+		<%= form_for(:password_reset, url: 	password_resets_path) do |f| %>
+			<%= f.label :email%>
+			<%= f.email_field :email, class: 'form-control' %>
+			<br>
+			<%= f.submit "Submit", class: 'btn btn-default tralobo-btn form-btn' %>
+		<% end %>
+		</div>
+	</div>
+
