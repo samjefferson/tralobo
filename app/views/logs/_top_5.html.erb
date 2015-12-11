@@ -1,4 +1,6 @@
-<% Log.where(user: @user).reorder('cached_votes_score DESC').first(5).each do |log| %>
+<% log_count = 5 %>
+<% log_count = @user.logs.count if @user.logs.count<5 %>
+<% Log.where(user: @user).reorder('cached_votes_score DESC').first(log_count).each do |log|  %>
 
 
   <li>
@@ -7,8 +9,9 @@
     <%= render 'logs/score' %>
   </div>
     <h3><%= link_to log.title, log%></h3>
-      
+      <% if !log.location.nil? %>
         <p id='city'><%= log.location.city %></p>
+      <% end %>
       
 
     <small class="timestamp">

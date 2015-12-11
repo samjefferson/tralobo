@@ -2,7 +2,7 @@
 
 <ol class='hot-logs logs'>
 
-<% if !hot_logs[0].nil? %>	
+<% if !hot_logs.nil? %>	
 
 <% hot_logs.each do |log| %>
 	<li> 
@@ -10,7 +10,9 @@
 			<% @log = log %>
 			<%=render 'logs/score'%>
 		</div>
-		<h5 class='under-link log-item truncate'><%= log.location.city %>:<br> <%= link_to log.title, log %> </h5></li>
+		<% if !log.location.nil? %>
+			<h5 class='under-link log-item truncate'><%= log.location.city %>:<br> <%= link_to log.title, log %> </h5></li>
+		<% end %>
 <% end %>
 
 <% else %>
