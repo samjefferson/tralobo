@@ -10,4 +10,6 @@ class UserMailer < ApplicationMailer
 
     mail to: user.email, subject: "Tralobo - Password reset"
   end
+
+ 
 end
