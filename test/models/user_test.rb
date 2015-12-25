@@ -82,7 +82,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'authenticate? false for nil token' do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 
   test 'delete user and dependent logs' do

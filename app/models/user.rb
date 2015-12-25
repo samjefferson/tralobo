@@ -29,10 +29,11 @@ class User < ActiveRecord::Base
   	update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  def authenticated?(remember_token)
-  	return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
-  end
+ def authenticated?(attribute, token)
+  digest = self.send("#{attribute}_digest")
+  return false if digest.nil?
+  BCrypt::Password.new(digest).is_password?(token)
+end
 
   def forget
   	update_attribute(:remember_digest, nil)
@@ -46,6 +47,12 @@ class User < ActiveRecord::Base
 
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+
+  #password reset expiration
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   acts_as_voter
