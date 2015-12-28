@@ -142,11 +142,19 @@ body{
 
 /* log map */
 
+.transp{
+  background-color: transparent !important;
+  border: none !important;
+}
+
 .full-map{
   width: 800px;
   height: 600px;
   margin: none;
   padding: none;
+  border-left: black 1px solid;
+  border-right: black 1px solid;
+  border-bottom: black 1px solid;
 }
 
 /* homepage */
@@ -210,14 +218,16 @@ body{
 /*footer*/
 
 footer {
+
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  
   color: #777;
 }
 
 footer a {
   color: #555;
+  background-color: white;
 }
 
 footer a:hover {
@@ -226,6 +236,7 @@ footer a:hover {
 
 footer small {
   float: left;
+  background-color: white;
 }
 
 footer ul {
