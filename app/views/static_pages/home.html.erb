@@ -21,6 +21,7 @@
 			
 			<br>
 			
+
 			<p><b>Welcome to Tralobo</b>, the place to find information and experiences regarding your next travel destination, or to share your experiences with the wider community.  At Tralobo, our goal is to build up a directory of tips, reviews and experiences throughout space and place.  We want to satisfy the explorers desire to share his discoveries, to alleviate the worried backpackers trepidation and to recreate good times for travellers and tourists everywhere.  We'd love it if you could help us on our mission by contributing to our directory and helping to build a collaboration to connect travellers everywhere.</p>
 			
 			<br>
@@ -36,7 +37,7 @@
 				<%= link_to 'Sign Up Here', signup_path, class: 'btn btn-lg btn-default tralobo-btn' %><br>
 			
 			</div>
-		
+		<br>
 		</div>
 		
 		<div class='col-xs-3 side-panel side-panel-right'>
@@ -46,7 +47,7 @@
 			<% random_location_lock = random_location %>
 			<% if !random_location_lock.nil? %>
 			
-				<h2><%= link_to random_location_lock.city, random_location_lock, class: 'under-link heading' %></h2>
+				<h2><%= link_to random_location_lock.city, random_location_lock, class: 'under-link heading location-heading' %></h2>
 			
 			<%end%> 
 			

@@ -4,7 +4,7 @@
 	
 	<div class='col-xs-9 main-panel'>
 		<div class='title-tab'>
-			<h1 class='heading'><%=@location.city %></h1>
+			<h1 class='heading location-heading'><%=@location.city %></h1>
 			<%= image_tag 'wp.png', id: 'wiki' %>
 			<%= link_to "#{@location.city} on Wikipedia", "https://en.wikipedia.org/wiki/#{@location.city}" %> 
 		</div>
@@ -73,6 +73,7 @@
 			<br>
 			<p>To see a map of locations users have inputted, visit the <b><% link_to 'LogMap', log_map_path%></b>.</p>
 			<%end%>
+			<br>
 	</div>
 
 	<div class='col-xs-3 side-panel side-panel-right'>

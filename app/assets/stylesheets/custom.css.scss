@@ -10,6 +10,8 @@ $light-grey: #E7E7E7;
 $dark-grey: #202020;
 $nav: #2c2c2c;
 
+$logo-font: 'Poiret One', cursive;
+
 @mixin box_sizing {
 	-moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -22,13 +24,12 @@ $nav: #2c2c2c;
 
 .logo{ 
 float: right;
-margin-top: 10px;
-font-size: 25px;
+margin-top: 5px;
+font-size: 30px;
 font-weight: bold;
-font-family: 'Kaushan Script', cursive;
+font-family: $logo-font;
 color: $goldy;
-text-transform: uppercase;
-letter-spacing: -1px;
+text-transform: lowercase;
 	&:hover {
 	text-decoration: none;
 	color: $goldy;
@@ -37,7 +38,24 @@ letter-spacing: -1px;
 
 /* layout */
 
- 
+
+body{
+  background: url(slate.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.main-panel{
+  background-color: white;
+}
+
+.location-heading{
+  text-transform: capitalize !important;
+}
+.row{
+  
+}
 
 .white{
   white-space: pre-wrap;
@@ -73,9 +91,11 @@ letter-spacing: -1px;
 }
 
 .tralobo-btn{
-	font-family: 'Kaushan Script', cursive;
+	font-family: $logo-font;
+  font-weight: bold !important;
 	color: $goldy !important;
 	width: none !important;
+  text-transform: lowercase;
 }
 
 .form-btn{
@@ -96,8 +116,9 @@ letter-spacing: -1px;
 }
 
 .nav{
-	font-family: 'Kaushan Script', cursive;
+	font-family: $logo-font;
 	color: $goldy;
+  text-transform: lowercase;
 }
 
 .goldy{
@@ -152,23 +173,24 @@ letter-spacing: -1px;
 
 .large-title{
 	font-size: 50px;
-	text-transform: uppercase;
-	letter-spacing: -2px;
+	text-transform: lowercase;
 	text-align: center;
-	font-weight: bold;
-    font-family: 'Kaushan Script', cursive;
+	
+  font-family: $logo-font !important;
   }
 
 .under-title{
 	font-size: 25px;
 	text-align: center;
   color: #7A5200 !important;
-  font-family: 'Kaushan Script', cursive !important;
+  font-family: $logo-font !important;
+  text-transform: lowercase;
 }
 
 .heading{
 	color: $goldy;
-	font-family: 'Kaushan Script', cursive;
+	font-family: $logo-font;
+  text-transform: lowercase;
 }
 
 .side-panel{

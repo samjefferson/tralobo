@@ -55,12 +55,12 @@
 			<p>No comments yet.</p>
 
 		<%end%>
-
+		<br>
 	</div>
 
 	<div class='col-xs-3 side-panel side-panel-right'>
 		<% if !@log.location.nil? %>
-		<h3><%= link_to @log.location.city, @log.location, class: 'heading under-link' %></h3>
+		<h3><%= link_to @log.location.city, @log.location, class: 'heading location-heading under-link' %></h3>
 		<% end %>
 		<div id='map-canvas' class='small-map'>
 		</div>
