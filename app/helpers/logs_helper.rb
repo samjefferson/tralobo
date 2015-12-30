@@ -6,6 +6,12 @@ module LogsHelper
 		end
 	end
 
+	def latest_log
+		if Log.exists?
+			Log.all.reorder('created_at DESC').first
+		end
+	end
+
 	
 
 end

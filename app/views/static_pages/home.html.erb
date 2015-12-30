@@ -2,53 +2,92 @@
 		
 		<div class= 'col-xs-9 main-panel'>
 			
-			<div class='background'>
+			<div class='background' style='padding-bottom:25px'>
 				
 				<h1 class='large-title heading'>Tra<span class='lo'>lo</span><span class='bo'>bo</span></h1>
 				<h2 class='under-title heading'>The Traveller's Logbook</h2>
 		
 			</div>
+			<br>
+			<p><b>Welcome to Tralobo</b>, the place to find information and experiences regarding your next travel destination, or to share your experiences with the wider community.  At Tralobo, our goal is to build up a directory of tips, reviews and experiences throughout space and place.  We want to satisfy the explorers desire to share his discoveries, to alleviate the worried backpackers trepidation and to recreate good times for travellers and tourists everywhere.  We'd love it if you could help us on our mission by contributing to our directory and helping to build a collaboration to connect travellers everywhere.</p>
 
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- ad1 -->
+<br>
+
+			<div class='well half-well' style='float:right'>
+			<h3 class='heading'>latest log</h3>
+
+			<h4 class='heading location-heading'><%= latest_log.location.city %>:</h4>
+			<h4 class='under-link log-item truncate'>
+			<%= link_to latest_log.title, latest_log %>
+
+			 </h4>
+			
+			<p>by</p>
+			<h4 class='under-link'><%=latest_log.user.username %></h4>
+			<script>
+	var mapOptions2 = {
+   center: new google.maps.LatLng(<%= coordinate_split_first(latest_log.location.coordinate) if !latest_log.nil? %>,<%= coordinate_split_last(latest_log.location.coordinate) if !latest_log.nil? %>),
+   zoom: 8,
+   mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var ready2 = function() {
+  mapSmallHome = new google.maps.Map(document.getElementById("map-canvas2"),
+            mapOptions);
+	};
+  
+                $(document).ready(ready2); 
+
+                $(document).on('page:load',ready2); 
+
+
+	</script>
+	<div id='map-canvas2' class='small-map'>
+			</div>
+		</div>
+
+			<div style='display:block;'>
+			<%= link_to "How to create a Log", home_create_path, class: 'btn btn-lg btn-default tralobo-btn under-link half-button' %>
+
+			<br><br>
+			
+			<%= link_to "View the LogMap", log_map_path, class: "btn btn-lg btn-default tralobo-btn under-link half-button"	 %>
+			
+			<br><br>
+		</div>
+		<div class='well half-well', style="float:left;">
+
+				<h3 class='heading'>register</h3>
+				<p>You do not have to sign up to view our content.  If you would, however, like to make a log, or to comment on and rate logs created by others, sign up for your free account.<p>
+					
+				<%= link_to 'Sign Up Here', signup_path, class: 'btn btn-lg btn-default tralobo-btn' %><br>
+			
+			</div>
+
+		
+			
+			<p><b>Short-term </b>- our vision for the short-term direction of the site is to move towards bringing in more interactive networking features.  Once we are consistently hitting our short term goal for traffic we will be introducing a user forum, a web support system and a method for rewarding top contributors.</p>
+			<br>
+			<p><b>Next update</b> - We are building a notification system so that users will be informed when another user comments on their Logs or Logs which they have commented on themselves. In addition to this the next update will contain a method for resetting user passwords.  In addition to this we are developing an image scraping system so that links posted will display a preview image.</p>
+			<div class="well" style='margin-top:10px'>
+
+
+				<h3 class='heading'>pre-release status</h3>
+			<p>The site is in its first days of life.  Please contribute a Log to help get us off the ground, and hopefully together we can create something intriguing and interesting.  There may still be bugs the are yet to be addressed and we working to tackle those before full release.</p>
+		</div>
+
+		<br>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ad2 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4897913461695017"
-     data-ad-slot="8651741884"
+     data-ad-slot="2465607480"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-			
-			<%= link_to "How to create a Log", home_create_path, class: 'btn btn-lg btn-default tralobo-btn under-link full-button' %>
-
-			<br><br>
-			
-			<%= link_to "View the LogMap", log_map_path, class: "btn btn-lg btn-default tralobo-btn under-link full-button" %>
-			
-			<br><br>
-			
-			<p>The site is in its first days of life.  Please contribute a Log to help get us off the ground, and hopefully together we can create something intriguing and interesting.  There may still be bugs the are yet to be addressed and we working to tackle those before full release.</p>
-			
-			<br>
-			
-
-			<p><b>Welcome to Tralobo</b>, the place to find information and experiences regarding your next travel destination, or to share your experiences with the wider community.  At Tralobo, our goal is to build up a directory of tips, reviews and experiences throughout space and place.  We want to satisfy the explorers desire to share his discoveries, to alleviate the worried backpackers trepidation and to recreate good times for travellers and tourists everywhere.  We'd love it if you could help us on our mission by contributing to our directory and helping to build a collaboration to connect travellers everywhere.</p>
-			
-			<br>
-			
-			<p><b>Our vison</b> for the short term direction of the site is to move towards bringing in more interactive networking features.  Once we are consistently hitting our short term goal for traffic we will be introducing a user forum, a web support system and a method for rewarding top contributors.</p>
-			<br>
-			<p><b>Next update</b> - We are building a notification system so that users will be informed when another user comments on their Logs or Logs which they have commented on themselves. In addition to this the next update will contain a method for resetting user passwords.  In addition to this we are developing an image scraping system so that links posted will display a preview image.</p>
-
-			<div class='well'>
-				
-				<p>You do not have to sign up to view our content.  If you would, however, like to make a log, or to comment on and rate logs created by others, sign up for your free account.<p>
-				
-				<%= link_to 'Sign Up Here', signup_path, class: 'btn btn-lg btn-default tralobo-btn' %><br>
-			
-			</div>
-		<br>
+<br>
 		</div>
 		
 		<div class='col-xs-3 side-panel side-panel-right'>
@@ -66,7 +105,7 @@
 			
 			<div id='map-canvas' class='small-map'>
 			</div>
-			
+			<br>
 <!-- ad2 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -76,7 +115,7 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-		
+		<br>
 		</div>
 	
 	</div>

@@ -5,7 +5,7 @@
 $light-blue: #3c46d6;
 $dark-blue: #051659;
 
-$goldy: #7A5200;
+$goldy: #7f5200;
 $light-grey: #E7E7E7;
 $dark-grey: #202020;
 $nav: #2c2c2c;
@@ -38,6 +38,10 @@ text-transform: lowercase;
 
 /* layout */
 /* precompile */
+
+p{
+  margin:10px;
+}
 
 body{
   background: url(oldparis.jpg) no-repeat center center fixed; 
@@ -80,6 +84,11 @@ body{
     overflow: hidden; 
 }
 
+.half-button{
+  width: 45% !important;
+  display: block;
+  margin: 10px;
+}
 
 .truncate{
   white-space: nowrap;
@@ -159,6 +168,12 @@ body{
 
 /* homepage */
 
+.half-well{
+  width: 45%;
+  margin:10px;
+  display:inline;
+}
+
 .full-button{
   width: 100% !important;
 }
@@ -175,22 +190,21 @@ body{
 .background{
 	margin-right:none;
 	margin-left: none;
-	margin-bottom: 20px;
-	width: 650px;
+  border-bottom: $light-grey solid 1px;
 }
 
 .large-title{
 	font-size: 50px;
 	text-transform: lowercase;
 	text-align: center;
-	
+	font-weight: bold;
   font-family: $logo-font !important;
   }
 
 .under-title{
 	font-size: 25px;
 	text-align: center;
-  color: #7A5200 !important;
+  color: $goldy !important;
   font-family: $logo-font !important;
   text-transform: lowercase;
 }
@@ -296,6 +310,8 @@ input {
     color: $state-danger-text;
   }
 }
+
+
 
 /*directory*/
 
